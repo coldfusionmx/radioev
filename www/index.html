@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+      <title>Radiología</title>
+
+<!--
+      <link rel="stylesheet" href="themes/RadioTheme.min.css" />
+      <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+-->
+
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <link rel="stylesheet" href="styles/icomoon.css">
+      <link rel="stylesheet" href="styles/main.css">
+
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <script type="text/javascript" src="scripts/jquery.anoslide.js"></script>
+
+    </head>
+    <body>
+        <!-- HOME -->
+        <div id="Home" data-role="page">
+          <div data-role="main" class="ui-content home-content">
+            <div id="HomeTitleMain"></div>
+            <div id="HomeSlider">
+              <div class="carousel" data-mixed="">
+                <ul class="carrousel_list">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="main_footer" data-role="footer" class="title_container" data-position="fixed">
+            <nav>
+              <div class="ui-grid-a">
+                <div class="nav_row ui-block-a">
+                  <a href="#About" class="main_menu_opt"><span class="icon-info-with-circle"></span>Información</a>
+                </div>
+	              <div class="nav_row ui-block-b">
+                  <a href="#Schedule" class="main_menu_opt"><span class="icon-calendar"></span>Programa</a>
+                </div>
+                <div class="nav_row ui-block-a">
+                  <a href="#Speakers" class="main_menu_opt"><span class="icon-user-tie"></span>Expositores</a>
+                </div>
+                <div class="nav_row ui-block-b">
+                  <a href="#Place" class="main_menu_opt"><span class="icon-location3"></span>Sede</a>
+                </div>
+                <div class="nav_row ui-block-a">
+                  <a href="#Sponsors" class="main_menu_opt"><span class="icon-bullhorn"></span>Patrocinadores</a>
+                </div>
+                <div class="nav_row ui-block-b">
+                  <a href="#Services" class="main_menu_opt"><span class="icon-spoon-knife"></span>Servicios</a>
+                </div>
+                <div class="nav_row ui-block-a">
+                  <a href="#Gallery" class="main_menu_opt"><span class="icon-images"></span>Galería</a>
+                </div>
+                <div class="nav_row ui-block-b">
+                  <a href="#Poll" class="main_menu_opt"><span class="icon-file-text2"></span>Encuesta</a>
+                </div>
+              </div>
+
+            </nav>
+          </div>
+        </div>
+        <!-- HOME -->
+
+        <!-- INFORMACION -->
+        <div id="About" data-role="page">
+
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Información</h1>
+          </div>
+
+          <div data-role="main" class="ui-content">
+            <h1 id="HomeTitle"></h1>
+            <p id="HomeDate"></p>
+            <div id="HomeContent"></div>
+            <div>
+              <h2>Contacto</h2>
+              <p><span class="icon-user"></span><span id="ContactName"></span></p>
+              <a id="ContactPhone" data-role="button" href="">Llamar</a>
+              <a id="ContactMail" data-role="button" href="">Enviar correo</a>
+            </div>
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+        <!-- INFORMACION -->
+
+        <!-- AGENDA -->
+        <div id="Schedule" data-role="page">
+
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Agenda</h1>
+          </div>
+
+          <div data-role="main" class="ui-content">
+            <div data-role="tabs">
+                <div data-role="navbar">
+                    <ul id="DateTabs">
+
+                    </ul>
+                </div>
+                <div id="ScheduleContent">
+
+                </div>
+            </div>
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+        <!-- AGENDA -->
+
+        <!-- SPEAKERS -->
+        <div id="Speakers" data-role="page">
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Expositores</h1>
+          </div>
+
+          <div data-role="main" class="ui-content">
+            <ul id="SpeakersList" data-role="listview" data-inset="true">
+
+            </ul>
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+        <!-- SPEAKERS -->
+
+        <!-- SPEAKERS DETAIL -->
+        <div id="SpeakerDetail" data-role="page">
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Expositor</h1>
+          </div>
+
+          <div id="SpeakerDetailMain" data-role="main" class="ui-content">
+
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+        <!-- SPEAKERS -->
+
+        <!-- SEDE -->
+        <div id="Place" data-role="page">
+
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Hotel sede</h1>
+          </div>
+
+          <div data-role="main" class="ui-content">
+            <div class="fluid-img-container">
+              <img src="images/app/main_place.jpg" class="fluid-img" />
+            </div>
+            <h2 id="PlaceName"></h2>
+            <p id="PlaceAddress"></p>
+            <a id="PlacePhone" data-role="button" href=""><span class="icon-phone"></span> Llamar</a>
+            <div id="map">
+            </div>
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+        <!-- SEDE -->
+
+        <div id="Gallery" data-role="page">
+
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Galería</h1>
+          </div>
+
+          <div data-role="main" class="ui-content">
+            <p>I Am Now A Mobile Developer!!</p>
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+
+        <!-- SPONSORS -->
+        <div id="Sponsors" data-role="page">
+
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Patrocinadores</h1>
+          </div>
+
+          <div id="SponsorsList" data-role="main" class="ui-content">
+
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+        <!-- SPONSORS -->
+
+        <!-- SERVICES -->
+        <div id="Services" data-role="page">
+
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Servicios</h1>
+          </div>
+
+          <div id="ServicesList" data-role="main" class="ui-content">
+
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+        <!-- SERVICES -->
+
+        <div id="Poll" data-role="page">
+
+          <div data-role="header" class="title_container">
+            <h1 class="title_header">Encuesta</h1>
+          </div>
+
+          <div data-role="main" class="ui-content">
+            <p>I Am Now A Mobile Developer!!</p>
+          </div>
+
+          <div data-role="footer" class="general-footer" data-position="fixed">
+            <img src="images/app/bayer.png" />
+          </div>
+        </div>
+
+        <div class="modal">
+          <div class="loading">
+            <object class="spinner" data="styles/spinner.svg" type="image/svg+xml">
+            </object>
+            <div class="loading_text">Cargando</div>
+          </div>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiPr5LarN-JK0wfUEVdZSnKO9nMZR_Ztc"
+    async defer></script>
+    </body>
+</html>
