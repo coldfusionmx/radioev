@@ -22,6 +22,35 @@
   display: block;
   margin: 0 auto;
 }
+
+.custom_title{
+  background-color: #7B0903 !important;
+  border-color: #7B0903 !important;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.6);
+}
+
+.custom_title > h1{
+  color: white;
+  text-shadow: none;
+}
+
+.call_btn{
+  background:#21AA48 !important;
+  border-color:#21AA48 !important;
+  color:white !important;
+  text-shadow: none;
+}
+
+.custom_btn{
+  background:#7B0903 !important;
+  border-color:#7B0903 !important;
+  color:white !important;
+  text-decoration: none;
+}
+
+.no-padding{
+  padding: 5px 0;
+}
 /*
 -----------------------------
  NAVIGATION
@@ -125,16 +154,22 @@
 */
 #HomeTitleMain{
   display: block;
-  position: absolute;
-  top:50px;
-  right: 0;
-  left:20px;
+  position: relative;
   padding: 10px;
   background: #7B0903;
-  text-align: right;
-  box-shadow: -2px 2px 4px black;
+  text-align: center;
+  box-shadow: 0px 4px 4px black;
   text-shadow: none;
   color: white;
+  font-size: 28px;
+  border-radius: 6px;
+  width: 80%;
+  max-width: 500px;
+  margin: 50px auto 10px auto;
+}
+
+#HomeTitleText {
+  font-size: 28px;
 }
 
 #HomeSlider{
@@ -143,7 +178,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  height: 40px;
+  height: 50px;
   background-color: white;
   border-top: 1px solid #21252B;
 }
@@ -167,6 +202,34 @@
   background-size: cover;
   background-position: center center;
 }
+
+.wrap{
+  padding: 0 2px !important;
+  width: 100px !important;
+  height: 50px !important;
+}
+
+.simply-scroll, .simply-scroll-clip{
+  height: 50px !important;
+  margin-bottom: 0 !important;
+}
+
+#HomeTitleLogo{
+  display: block;
+  width: 150px;
+  margin: -30px auto 10px auto;
+
+}
+
+#HomeDate{
+  font-style: italic;
+  font-weight: bold;
+  color: #7B0903;
+}
+#HomeContent{
+  text-align: justify;
+}
+
 /*
 -----------------------------
  INFO
@@ -227,8 +290,6 @@
 .schedule_table{
   border: 2px solid #610B0B;
   border-bottom: 1px solid #610B0B;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 .schedule_table > tbody > tr > td{
@@ -291,6 +352,24 @@
 .schedule-row-speaker-name{
     font-style: italic;
     font-size: 12px;
+}
+
+.tabbar_item{
+  background: #333;
+  color: white;
+}
+
+.tabbar_item{
+  background: #333 !important;
+  border-color: #555555 !important;
+  color: white !important;
+  text-shadow: none;
+  box-shadow: none !important;
+}
+
+.tabbar_item_container > .ui-btn-active{
+  background: #D90000 !important;
+  border-color: #7B0903 !important;
 }
 
 /*

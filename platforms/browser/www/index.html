@@ -12,25 +12,29 @@
 -->
 
       <link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.min.css">
-      <link rel="stylesheet" href="jquery/jquery.mobile.structure-1.4.5.min.css" />
       <link rel="stylesheet" href="styles/icomoon.css">
       <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="styles/main_response.css">
+      <link rel="stylesheet" href="scroll/jquery.simplyscroll.css">
 
       <script src="jquery/jquery-1.11.1.min.js"></script>
       <script src="jquery/jquery.mobile-1.4.5.min.js"></script>
-      <script type="text/javascript" src="scripts/jquery.anoslide.js"></script>
-
+      <script src="scroll/jquery.simplyscroll.min.js"></script>
     </head>
     <body>
         <!-- HOME -->
         <div id="Home" data-role="page">
           <div data-role="main" class="ui-content home-content">
-            <div id="HomeTitleMain"></div>
-            <div id="HomeSlider">
-              <div class="carousel" data-mixed="">
-                <ul class="carrousel_list">
-                </ul>
+            <div id="HomeTitleMain">
+              <div id="HomeTitleLogo">
+                <img src="images/app/logo_radio.jpg" class="fluid-img" />
               </div>
+              <div id="HomeTitleText">
+              </div>
+            </div>
+            <div id="HomeSlider">
+              <ul id="scroller">
+              </ul>
             </div>
           </div>
 
@@ -71,7 +75,7 @@
         <!-- INFORMACION -->
         <div id="About" data-role="page">
 
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Información</h1>
           </div>
 
@@ -82,8 +86,8 @@
             <div>
               <h2>Contacto</h2>
               <p><span class="icon-user"></span><span id="ContactName"></span></p>
-              <a id="ContactPhone" data-role="button" href="">Llamar</a>
-              <a id="ContactMail" data-role="button" href="">Enviar correo</a>
+              <a id="ContactPhone" data-role="button" href="" class="call_btn"><span class="icon-phone"></span> Llamar</a>
+              <a id="ContactMail" data-role="button" href="" class="custom_btn"><span class="icon-mail"></span> Enviar correo</a>
             </div>
           </div>
 
@@ -96,11 +100,11 @@
         <!-- AGENDA -->
         <div id="Schedule" data-role="page">
 
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Agenda</h1>
           </div>
 
-          <div data-role="main" class="ui-content">
+          <div data-role="main" class="ui-content no-padding">
             <div data-role="tabs">
                 <div data-role="navbar">
                     <ul id="DateTabs">
@@ -121,11 +125,11 @@
 
         <!-- SPEAKERS -->
         <div id="Speakers" data-role="page">
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Expositores</h1>
           </div>
 
-          <div data-role="main" class="ui-content">
+          <div data-role="main" class="ui-content no-padding">
             <ul id="SpeakersList" data-role="listview" data-inset="true">
 
             </ul>
@@ -139,7 +143,7 @@
 
         <!-- SPEAKERS DETAIL -->
         <div id="SpeakerDetail" data-role="page">
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Expositor</h1>
           </div>
 
@@ -156,7 +160,7 @@
         <!-- SEDE -->
         <div id="Place" data-role="page">
 
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Hotel sede</h1>
           </div>
 
@@ -166,7 +170,7 @@
             </div>
             <h2 id="PlaceName"></h2>
             <p id="PlaceAddress"></p>
-            <a id="PlacePhone" data-role="button" href=""><span class="icon-phone"></span> Llamar</a>
+            <a id="PlacePhone" data-role="button" href="" class="call_btn"><span class="icon-phone"></span> Llamar</a>
             <div id="map">
             </div>
           </div>
@@ -179,7 +183,7 @@
 
         <div id="Gallery" data-role="page">
 
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Galería</h1>
           </div>
 
@@ -195,7 +199,7 @@
         <!-- SPONSORS -->
         <div id="Sponsors" data-role="page">
 
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Patrocinadores</h1>
           </div>
 
@@ -212,11 +216,11 @@
         <!-- SERVICES -->
         <div id="Services" data-role="page">
 
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Servicios</h1>
           </div>
 
-          <div id="ServicesList" data-role="main" class="ui-content">
+          <div id="ServicesList" data-role="main" class="ui-content no-padding">
 
           </div>
 
@@ -228,7 +232,7 @@
 
         <div id="Poll" data-role="page">
 
-          <div data-role="header" class="title_container">
+          <div data-role="header" class="custom_title title_container">
             <h1 class="title_header">Encuesta</h1>
           </div>
 

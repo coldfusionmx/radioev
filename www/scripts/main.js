@@ -1,7 +1,7 @@
 //var _server_url = "http://localhost/Radiologia/";
-//var _server_url = "http://api.desoftware.mx/eventos/index.php/obtener/";
-var _server_url = "http://www.movieclip.mx/apps/radiologia/";
-var _data_path = _server_url + "data/";
+var _server_url = "http://api.desoftware.mx/eventos/index.php/obtener/";
+//var _server_url = "http://www.movieclip.mx/apps/radiologia/";
+var _data_path = _server_url; //+ "data/";
 var _image_path = _server_url + "images/";
 var _data_storage;
 var _sync_index = 0;
@@ -10,6 +10,7 @@ var _sync = []
 var _device_type;
 var _screen_width;
 var _screen_height;
+var _nc = 0;
 
 $(document).ready(function() {
   _data_storage = window.localStorage;
@@ -42,8 +43,12 @@ function onTapBack(){
 
 function Sync(){
   ShowLoading("Sincronizando");
-  //console.log("Sincronizando...");
-  $.get(_data_path + "sync.json",null,function(data){
+
+  _nc = Math.round(Math.random()*10000);
+
+  //console.log("Descargando " + _data_path + "sync.json?nc=" + _nc + "...");
+
+  $.get(_data_path + "sync.json?nc=" + _nc,null,function(data){
     _sync = data;
     if(_data_storage.getItem("sync") == null){
       _sync_files = data;
@@ -56,9 +61,13 @@ function Sync(){
         var insert_queue = true;
         $.each(tmp_sync,function(index2,value2){
           if(value.file == value2.file){
+            //console.log(value.published +"=="+ value2.published)
             if(value.published == value2.published){
+              //console.log("Fechas iguales");
               insert_queue = false;
               return false;
+            }else{
+              //console.log("Fechas diferentes");
             }
           }
 
@@ -84,9 +93,9 @@ function Sync(){
 
 function getJsonFile(){
   var file = _sync_files[_sync_index].file;
-  //console.log("Descargando " + file + "...");
+  //console.log("Descargando " + _data_path + file + "?nc=" + _nc + "...");
 
-  $.get(_data_path + file,null,function(data){
+  $.get(_data_path + file + "?nc=" + _nc,null,function(data){
     var key = _sync_files[_sync_index].file.replace(".json","");
     _data_storage.setItem(key,JSON.stringify(data));
     _sync_index--;
@@ -147,6 +156,10 @@ function InitUI(){
   InitSponsors();
   InitServices();
 
+  var home_height = $(".home-content").height() - $("#HomeSlider").height();
+  var title_height = 128; //$("#HomeTitleMain").height();
+  var margin_top = (home_height - title_height)/2;
+  $("#HomeTitleMain").css("margin-top",margin_top);
   $("#Home").children().show();
   HideLoading();
 }
@@ -195,18 +208,18 @@ function InitSchedule(){
   var html_tabs = "";
 
   //console.log("Inicializa Vista Speakers...");
-  //console.log(schedule_arr);
+  console.log(schedule_arr);
   $.each(schedule_arr,function(index,day){
       var date = getStrignFromDate(day.date);
       var tabname = "Tab" + index;
-      html += "<li><a href=\"#" + tabname + "\" data-theme=\"a\" data-ajax=\"false\">" + date + "</a></li>";
-
+      var active = (index == 0) ? "ui-btn-active" : "";
+      html += "<li class=\"tabbar_item_container\"><a class=\"tabbar_item " + active + "\" href=\"#" + tabname + "\" data-theme=\"a\" data-ajax=\"false\">" + date + "</a></li>";
       html_tabs += "<div id=\"" + tabname + "\">";
-      html_tabs += "<table class=\"schedule_table\" cellspacing=\"0\">";
+      html_tabs += "  <table class=\"schedule_table\" cellspacing=\"0\">";
       $.each(day.items,function(index2,item){
         html_tabs += getScheduleRowByType(item,index2,index);
       });
-      html += "</table>"
+      html_tabs += "  </table>"
       html_tabs += "</div>";
   });
   $("#DateTabs").html(html);
@@ -235,14 +248,14 @@ function getScheduleRowByType(item,row,table){
       html += " <td class=\"schedule_button\"><span class=\"icon-chevron-right\"></span></td>";
       html += "</tr>";
       //html = "<li><a href=\"#\">" + item.title + "</a></li>";
-    }else if(item.type == 3){
+    }else if(item.type == 4){
       html += "<tr class=\"schedule_row\" row-index=\""+ row +"\" table-index=\""+table+"\">";
       html += " <td class=\"schedule_time\">" + item.time + "</td>";
       html += " <td class=\"schedule_title\"><b>"+item.title+"</b>" + getSpeakersNames(item.speaker) + "</td>";
       html += " <td class=\"schedule_button\"><span class=\"icon-chevron-right\"></span></td>";
       html += "</tr>";
       //html = "<li><a href=\"#\">" + item.title + "</a></li>";
-    }else if(item.type == 4){
+    }else if(item.type == 3){
       html += "<tr>";
       html += " <td class=\"schedule_time\">" + item.time + "</td>";
       html += " <td class=\"schedule_title\">"+item.title + getSpeakersNames(item.speaker) + "</td>";
