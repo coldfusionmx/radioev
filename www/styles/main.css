@@ -128,13 +128,15 @@
   position: absolute;
   top:50px;
   right: 0;
-  left:20px;
+  left:0px;
   padding: 10px;
   background: #7B0903;
-  text-align: right;
+  text-align: left;
   box-shadow: -2px 2px 4px black;
   text-shadow: none;
   color: white;
+
+  max-width: 300px;
 }
 
 #HomeSlider{
@@ -143,7 +145,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  height: 40px;
+  height: 50px;
   background-color: white;
   border-top: 1px solid #21252B;
 }
@@ -167,6 +169,23 @@
   background-size: cover;
   background-position: center center;
 }
+
+.wrap{
+  padding: 0 2px !important;
+  width: 100px !important;
+  height: 50px !important;
+}
+
+.simply-scroll, .simply-scroll-clip{
+  height: 50px !important;
+  margin-bottom: 0 !important;
+}
+
+#HomeTitleLogo{
+  display: block;
+  width: 150px;
+}
+
 /*
 -----------------------------
  INFO

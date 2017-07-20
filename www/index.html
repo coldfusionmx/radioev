@@ -12,25 +12,28 @@
 -->
 
       <link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.min.css">
-      <link rel="stylesheet" href="jquery/jquery.mobile.structure-1.4.5.min.css" />
       <link rel="stylesheet" href="styles/icomoon.css">
       <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="scroll/jquery.simplyscroll.css">
 
       <script src="jquery/jquery-1.11.1.min.js"></script>
       <script src="jquery/jquery.mobile-1.4.5.min.js"></script>
-      <script type="text/javascript" src="scripts/jquery.anoslide.js"></script>
-
+      <script src="scroll/jquery.simplyscroll.min.js"></script>
     </head>
     <body>
         <!-- HOME -->
         <div id="Home" data-role="page">
           <div data-role="main" class="ui-content home-content">
-            <div id="HomeTitleMain"></div>
-            <div id="HomeSlider">
-              <div class="carousel" data-mixed="">
-                <ul class="carrousel_list">
-                </ul>
+            <div id="HomeTitleMain">
+              <div id="HomeTitleLogo">
+                <img src="images/app/logo_radio.jpg" class="fluid-img" />
               </div>
+              <div id="HomeTitleText">
+              </div>
+            </div>
+            <div id="HomeSlider">
+              <ul id="scroller">
+              </ul>
             </div>
           </div>
 
@@ -82,8 +85,8 @@
             <div>
               <h2>Contacto</h2>
               <p><span class="icon-user"></span><span id="ContactName"></span></p>
-              <a id="ContactPhone" data-role="button" href="">Llamar</a>
-              <a id="ContactMail" data-role="button" href="">Enviar correo</a>
+              <a id="ContactPhone" data-role="button" href=""><span class="icon-phone"></span> Llamar</a>
+              <a id="ContactMail" data-role="button" href=""><span class="icon-mail"></span> Enviar correo</a>
             </div>
           </div>
 

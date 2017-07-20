@@ -1,8 +1,7 @@
 //var _server_url = "http://localhost/Radiologia/";
-//var _server_url = "http://www.movieclip.mx/apps/radiologia/";
-
-var _server_url = "http://api.desoftware.mx/eventos/";
-var _data_path = _server_url;// + "data/";
+//var _server_url = "http://api.desoftware.mx/eventos/index.php/obtener/";
+var _server_url = "http://www.movieclip.mx/apps/radiologia/";
+var _data_path = _server_url + "data/";
 var _image_path = _server_url + "images/";
 var _data_storage;
 var _sync_index = 0;
@@ -156,14 +155,14 @@ function InitUI(){
 function InitInfo(){
   var info = $.parseJSON(_data_storage.getItem("info"));
 
-  $("#HomeTitleMain").html(info.name);
+  $("#HomeTitleText").html(info.name);
 
   $("#HomeTitle").html(info.name);
   $("#HomeDate").html(info.date);
   $("#HomeContent").html(info.content);
   $("#ContactName").html(info.contact.name);
-  $("#ContactPhone").attr("href","tel:" + info.contact.phone)
-  $("#ContactMail").attr("href","tel:" + info.contact.mail)
+  $("#ContactPhone").attr("href","tel:" + info.contact.phone.replace(" ",""));
+  $("#ContactMail").attr("href","mailto:" + info.contact.mail)
 
   $("#PlaceName").html(info.main_place.name);
   $("#PlaceAddress").html(info.main_place.address);
@@ -359,22 +358,21 @@ function InitSponsors(){
     html += " <img class=\"fluid-img\" src=\"" + url + "\">";
     html += "</div>";
 
-    html_slider += "<li>";
-		html_slider += "	<div class=\"wrap\"><figure><img class=\"fluid-img\" src=\"" + url + "\"></figure></div>";
+    html_slider += "<li class=\"wrap\">";
+		html_slider += "	<img class=\"fluid-img\" src=\"" + url + "\" onerror=\"onSponsorImgError(this)\">";
 		html_slider += "</li>";
   });
 
   $("#SponsorsList").html(html);
-  $(".carrousel_list").html(html_slider);
-  
-  $('.carousel[data-mixed] ul').anoSlide(
-  {
-  	items: sponsors_arr.lenght,
-  	speed: 500,
-  	lazy: true,
-  	delay: 80,
-    auto:100
-  })
+  $("#scroller").html(html_slider);
+
+  $(function() {
+		$("#scroller").simplyScroll({direction:'forwards',pauseOnHover:false});
+	});
+}
+
+function onSponsorImgError(ev){
+  ev.src='images/app/sponsor-no-photo.jpg';
 }
 
 function onTapSponsor(index){
